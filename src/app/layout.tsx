@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ClientProviders from "@/components/providers/ClientProviders";
 import Navbar from "@/components/layout/Navbar";
@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: "Harmony Gardens | Luxury Properties & Estates",
   description:
     "Find verified luxury apartments, duplexes, and mansions in Lekki, Ikoyi, Victoria Island, Ikeja GRA, and Abuja. Harmony Gardens connects you with Nigeria's finest properties.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

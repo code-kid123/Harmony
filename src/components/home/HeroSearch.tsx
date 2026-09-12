@@ -64,7 +64,7 @@ export default function HeroSearch() {
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-canvas/60 font-body">
           {defaultAgencyConfig.agencyName}
         </p>
-        <h1 className="mt-4 max-w-3xl font-display text-5xl font-medium leading-[1.05] text-canvas tracking-[-0.03em] md:text-7xl">
+        <h1 className="mt-4 max-w-3xl font-display font-medium leading-[1.05] text-canvas tracking-[-0.03em] text-4xl sm:text-5xl md:text-7xl">
           {"Discover Nigeria's Finest Residences"}
         </h1>
         <p className="mt-5 max-w-xl text-lg text-canvas/70 font-body leading-relaxed">
@@ -82,10 +82,10 @@ export default function HeroSearch() {
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-2.5 rounded-md text-sm font-semibold transition-colors duration-200 ${
+                    className={`min-h-11 px-6 text-sm font-semibold transition-colors duration-200 rounded-md ${
                       activeTab === tab
                         ? "bg-ink text-canvas"
-                        : "text-ink-700"
+                        : "text-ink-700 active:bg-canvas"
                     }`}
                   >
                     {tab}
@@ -95,12 +95,12 @@ export default function HeroSearch() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-4">
-              <div className="flex items-center gap-2 border-0 border-r border-line px-5 py-3">
+              <div className="flex min-w-0 items-center gap-2 border-0 border-r border-line px-5 py-3">
                 <MapPin className="h-4 w-4 shrink-0 text-ink-700" />
                 <select
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className="w-full appearance-none bg-transparent text-sm text-ink-700 outline-none"
+                  className="w-full min-w-0 appearance-none bg-transparent text-sm text-ink-700 outline-none"
                 >
                   <option value="">All Locations</option>
                   {LOCATIONS.map((loc) => (
@@ -109,12 +109,12 @@ export default function HeroSearch() {
                 </select>
               </div>
 
-              <div className="flex items-center gap-2 border-0 border-r border-line px-5 py-3">
+              <div className="flex min-w-0 items-center gap-2 border-0 border-r border-line px-5 py-3">
                 <Home className="h-4 w-4 shrink-0 text-ink-700" />
                 <select
                   value={propertyType}
                   onChange={(e) => setPropertyType(e.target.value)}
-                  className="w-full appearance-none bg-transparent text-sm text-ink-700 outline-none"
+                  className="w-full min-w-0 appearance-none bg-transparent text-sm text-ink-700 outline-none"
                 >
                   <option value="">All Types</option>
                   {PROPERTY_TYPES.map((t) => (
@@ -123,12 +123,12 @@ export default function HeroSearch() {
                 </select>
               </div>
 
-              <div className="flex items-center gap-2 border-0 border-line px-5 py-3 sm:border-r-0">
+              <div className="flex min-w-0 items-center gap-2 border-0 border-line px-5 py-3 sm:border-r-0">
                 <SlidersHorizontal className="h-4 w-4 shrink-0 text-ink-700" />
                 <select
                   value={priceIndex}
                   onChange={(e) => setPriceIndex(Number(e.target.value))}
-                  className="w-full appearance-none bg-transparent text-sm text-ink-700 outline-none"
+                  className="w-full min-w-0 appearance-none bg-transparent text-sm text-ink-700 outline-none"
                 >
                   {PRICE_PRESETS.map((p, i) => (
                     <option key={p.label} value={i}>{p.label}</option>

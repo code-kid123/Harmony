@@ -145,7 +145,7 @@ function LeadsContent() {
       <div className="flex items-center gap-3">
         <Link
           href="/admin"
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-line text-ink-700 hover:bg-canvas-muted"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-line text-ink-700 hover:bg-canvas-muted active:bg-canvas-muted"
         >
           <ArrowLeft className="h-4 w-4" />
         </Link>

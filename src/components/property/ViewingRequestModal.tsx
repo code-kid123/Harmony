@@ -77,14 +77,18 @@ export default function ViewingRequestModal({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/60 p-4">
-      <div className="relative flex w-full max-w-md flex-col rounded-lg bg-canvas-card shadow-lifted max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/60 p-0 sm:items-center sm:p-4">
+      <div className="relative flex w-full max-w-md flex-col rounded-t-2xl bg-canvas-card shadow-lifted max-h-[90dvh] overflow-hidden sm:rounded-lg sm:max-h-[85vh]">
+        <div className="flex justify-center pt-2 sm:hidden">
+          <span className="h-1.5 w-10 rounded-full bg-ink/10" />
+        </div>
+
         <div className="flex items-center justify-between border-b border-line px-6 py-4">
           <div>
             <h2 className="font-display text-lg font-medium text-ink">Schedule a Viewing</h2>
             <p className="mt-0.5 truncate text-xs text-ink-700 max-w-[280px]">{property.title}</p>
           </div>
-          <button onClick={resetAndClose} className="flex h-8 w-8 items-center justify-center rounded text-ink-700 hover:text-ink transition-colors duration-150">
+          <button onClick={resetAndClose} className="flex h-11 w-11 -mr-3 items-center justify-center rounded text-ink-700 hover:text-ink active:bg-canvas-muted transition-colors duration-150">
             <X className="h-5 w-5" />
           </button>
         </div>
@@ -125,7 +129,7 @@ export default function ViewingRequestModal({
                 <div className="mt-2 flex flex-wrap gap-2">
                   {TIME_SLOTS.map((slot) => (
                     <button key={slot} onClick={() => setTime(slot)}
-                      className={`flex items-center gap-1 rounded border px-3 py-1.5 text-xs font-medium transition-colors duration-150 ${time === slot ? "border-[var(--brand-primary)] bg-gold-50 text-ink" : "border-line text-ink-700 hover:border-ink/30"}`}>
+                      className={`flex min-h-11 items-center gap-1 rounded border px-3 py-2.5 text-xs font-medium transition-colors duration-150 ${time === slot ? "border-[var(--brand-primary)] bg-gold-50 text-ink" : "border-line text-ink-700 hover:border-ink/30"}`}>
                       <Clock className="h-3 w-3" />{slot}
                     </button>
                   ))}
@@ -135,19 +139,19 @@ export default function ViewingRequestModal({
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-700">Full Name</p>
                   <div className="mt-1 flex items-center gap-2"><User className="h-4 w-4 text-ink-700" />
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Adebayo Johnson" className="underline-input" />
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" placeholder="Adebayo Johnson" className="underline-input" />
                   </div>
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-700">Phone Number</p>
                   <div className="mt-1 flex items-center gap-2"><Phone className="h-4 w-4 text-ink-700" />
-                    <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="08177766115" className="underline-input" />
+                    <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} autoComplete="tel" inputMode="tel" placeholder="08177766115" className="underline-input" />
                   </div>
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-700">Email Address</p>
                   <div className="mt-1 flex items-center gap-2"><Mail className="h-4 w-4 text-ink-700" />
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" className="underline-input" />
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" inputMode="email" placeholder="you@email.com" className="underline-input" />
                   </div>
                 </div>
               </div>
@@ -156,13 +160,13 @@ export default function ViewingRequestModal({
         </div>
 
         {!submitted && (
-          <div className="border-t border-line px-6 py-4">
+          <div className="border-t border-line px-6 py-4 safe-area-pb">
             <button onClick={handleSubmit} disabled={!canSubmit}
-              className="w-full rounded-lg bg-ink py-3.5 text-sm font-semibold text-canvas transition-colors duration-200 hover:bg-ink-800 disabled:cursor-not-allowed disabled:opacity-40">
+              className="w-full rounded-lg bg-ink py-3.5 text-sm font-semibold text-canvas transition-colors duration-200 active:bg-ink-800 hover:bg-ink-800 disabled:cursor-not-allowed disabled:opacity-40">
               Confirm Viewing Request
             </button>
             <button onClick={resetAndClose}
-              className="mt-2 w-full text-center text-xs font-medium text-ink-700 underline decoration-ink/30 underline-offset-4 transition-colors hover:text-ink">
+              className="mt-2 flex min-h-11 w-full items-center justify-center text-center text-xs font-medium text-ink-700 underline decoration-ink/30 underline-offset-4 transition-colors hover:text-ink">
               Cancel
             </button>
           </div>

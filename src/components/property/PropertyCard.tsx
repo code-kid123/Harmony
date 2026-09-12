@@ -58,17 +58,17 @@ export default function PropertyCard({
 
         <button
           onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded bg-canvas/80 p-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100 hover:bg-canvas"
+          className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-canvas/85 shadow-soft transition-all duration-200 hover:bg-canvas active:scale-95"
           aria-label="Previous image"
         >
-          <ChevronLeft className="h-4 w-4 text-ink" />
+          <ChevronLeft className="h-5 w-5 text-ink" />
         </button>
         <button
           onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded bg-canvas/80 p-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100 hover:bg-canvas"
+          className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-canvas/85 shadow-soft transition-all duration-200 hover:bg-canvas active:scale-95"
           aria-label="Next image"
         >
-          <ChevronRight className="h-4 w-4 text-ink" />
+          <ChevronRight className="h-5 w-5 text-ink" />
         </button>
 
         <div className="absolute bottom-3 right-3 flex gap-1">
@@ -109,14 +109,14 @@ export default function PropertyCard({
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-whatsapp px-3 py-2.5 text-xs font-semibold text-white transition-colors duration-200 hover:bg-whatsapp-700"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-whatsapp px-3 py-3 text-xs font-semibold text-white transition-colors duration-200 hover:bg-whatsapp-700 active:bg-whatsapp-700"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             WhatsApp
           </a>
           <Link
             href={`/properties/${property.slug || property.id}`}
-            className="flex items-center justify-center gap-1.5 rounded-lg border border-ink/10 px-3 py-2.5 text-xs font-semibold text-ink-700 transition-colors duration-200 hover:border-ink/30"
+            className="flex items-center justify-center gap-1.5 rounded-lg border border-ink/10 px-3 py-3 text-xs font-semibold text-ink-700 transition-colors duration-200 hover:border-ink/30 active:bg-canvas-muted"
           >
             <Eye className="h-3.5 w-3.5" />
             Details

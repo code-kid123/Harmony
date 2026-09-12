@@ -38,7 +38,7 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 h-20 transition-all duration-200",
+          "sticky top-0 z-50 min-h-20 safe-area-top transition-all duration-200",
           scrolled
             ? "bg-wine/95 backdrop-blur-[2px] border-b border-white/10"
             : "bg-wine border-b border-white/10"
@@ -89,14 +89,14 @@ export default function Navbar() {
           <div className="flex items-center gap-3 lg:hidden">
             <a
               href={`tel:${config.phone}`}
-              className="flex h-10 w-10 items-center justify-center rounded border border-white/20 text-white"
+              className="flex h-11 w-11 items-center justify-center rounded border border-white/20 text-white active:bg-white/10"
               aria-label="Call"
             >
               <Phone className="h-4 w-4" />
             </a>
             <button
               onClick={() => setMobileOpen(true)}
-              className="flex h-10 w-10 items-center justify-center rounded border border-white/20 text-white"
+              className="flex h-11 w-11 items-center justify-center rounded border border-white/20 text-white active:bg-white/10"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
@@ -107,14 +107,14 @@ export default function Navbar() {
 
       {/* Mobile full-screen takeover */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[60] bg-ink flex flex-col">
-          <div className="flex h-16 items-center justify-between px-6">
+        <div className="fixed inset-0 z-[60] bg-ink flex flex-col safe-area-top safe-area-pb">
+          <div className="flex min-h-16 shrink-0 items-center justify-between px-6">
             <span className="font-display text-lg font-medium text-canvas">
               {config.agencyName}
             </span>
             <button
               onClick={() => setMobileOpen(false)}
-              className="flex h-10 w-10 items-center justify-center text-canvas/70 hover:text-canvas transition-colors"
+              className="flex h-11 w-11 items-center justify-center text-canvas/70 hover:text-canvas active:text-canvas transition-colors"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
@@ -126,13 +126,13 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="py-4 font-display text-4xl text-canvas hover:text-cta transition-colors duration-200"
+                className="flex min-h-14 items-center border-b border-canvas/10 font-display text-4xl text-canvas hover:text-cta transition-colors duration-200"
                 style={{ animationDelay: `${i * 60}ms` }}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="mt-8 border-t border-canvas/10 pt-6 flex flex-col gap-3">
+            <div className="mt-8 flex flex-col gap-3">
               <Link
                 href="/schedule"
                 onClick={() => setMobileOpen(false)}

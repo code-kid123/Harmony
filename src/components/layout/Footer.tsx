@@ -75,7 +75,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded bg-ink-800 text-canvas/50 transition-colors duration-200 hover:bg-ink-700 hover:text-canvas"
+                  className="flex h-11 w-11 items-center justify-center rounded bg-ink-800 text-canvas/50 transition-colors duration-200 hover:bg-ink-700 hover:text-canvas active:bg-ink-700"
                   aria-label={social.label}
                 >
                   <social.icon className="h-4 w-4" />

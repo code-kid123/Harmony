@@ -134,7 +134,7 @@ export default function PropertyDetailPage({
             </div>
           </div>
           <div className="flex gap-2">
-            <button className="flex items-center gap-1.5 rounded-lg border border-line px-3 py-2 text-xs font-medium text-ink-700 transition-colors hover:bg-canvas-muted">
+            <button className="flex min-h-11 items-center gap-1.5 rounded-lg border border-line px-4 py-2.5 text-xs font-medium text-ink-700 transition-colors hover:bg-canvas-muted active:bg-canvas-muted">
               <Share2 className="h-3.5 w-3.5" />
               Share
             </button>
@@ -282,7 +282,7 @@ export default function PropertyDetailPage({
                 </div>
                 <a
                   href={`tel:${property.agent.phone}`}
-                  className="flex items-center gap-1.5 rounded-lg border border-line px-3 py-2 text-xs font-medium text-ink-700 transition-colors hover:bg-canvas-muted"
+                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-line px-4 py-2.5 text-xs font-medium text-ink-700 transition-colors hover:bg-canvas-muted active:bg-canvas-muted"
                 >
                   <Phone className="h-3.5 w-3.5" />
                   Call
@@ -392,7 +392,7 @@ export default function PropertyDetailPage({
         >
           <button
             onClick={() => setGalleryOpen(false)}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 active:bg-white/20"
           >
             <X className="h-5 w-5" />
           </button>

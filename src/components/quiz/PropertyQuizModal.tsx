@@ -227,15 +227,20 @@ export default function PropertyQuizModal({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/60 p-4">
-      <div className="relative flex w-full max-w-lg flex-col rounded-lg bg-canvas-card shadow-lifted max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/60 p-0 sm:items-center sm:p-4">
+      <div className="relative flex w-full max-w-lg flex-col rounded-t-2xl bg-canvas-card shadow-lifted max-h-[90dvh] overflow-hidden sm:rounded-lg sm:max-h-[85vh]">
+        {/* Drag handle */}
+        <div className="flex justify-center pt-2 sm:hidden">
+          <span className="h-1.5 w-10 rounded-full bg-ink/10" />
+        </div>
+
         {/* Header */}
         <div className="flex items-center justify-between border-b border-line px-6 py-4">
           <div className="flex items-center gap-3">
             <button
               onClick={handleBack}
               aria-label="Go back"
-              className="flex shrink-0 items-center gap-1 rounded-full py-1.5 pl-2 pr-3 text-xs font-semibold text-ink-700 transition-colors hover:bg-canvas-muted"
+              className="flex shrink-0 items-center gap-1 rounded-full py-2.5 pl-2.5 pr-3.5 min-h-11 text-xs font-semibold text-ink-700 transition-colors hover:bg-canvas-muted active:bg-canvas-muted"
             >
               <ChevronLeft className="h-4 w-4" />
               Back
@@ -253,7 +258,7 @@ export default function PropertyQuizModal({
           </div>
           <button
             onClick={resetQuiz}
-            className="flex h-8 w-8 items-center justify-center rounded-full text-canvas/70 transition-colors hover:bg-canvas-muted hover:text-canvas"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-canvas-muted hover:text-ink active:bg-canvas-muted"
           >
             <X className="h-5 w-5" />
           </button>
@@ -433,7 +438,8 @@ export default function PropertyQuizModal({
                       }))
                     }
                     placeholder="0"
-                    className="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm outline-none focus:border-[var(--brand-primary)]"
+                    inputMode="numeric"
+                    className="mt-1 w-full rounded-lg border border-line px-3 py-2.5 text-sm outline-none focus:border-[var(--brand-primary)]"
                   />
                 </div>
                 <span className="mt-4 text-ink-700/40">-</span>
@@ -449,7 +455,8 @@ export default function PropertyQuizModal({
                       }))
                     }
                     placeholder="No limit"
-                    className="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm outline-none focus:border-[var(--brand-primary)]"
+                    inputMode="numeric"
+                    className="mt-1 w-full rounded-lg border border-line px-3 py-2.5 text-sm outline-none focus:border-[var(--brand-primary)]"
                   />
                 </div>
               </div>
@@ -573,7 +580,7 @@ export default function PropertyQuizModal({
 
         {/* Footer with nav / lead form */}
         {!submitted && (
-          <div className="border-t border-line px-6 py-4">
+          <div className="border-t border-line px-6 py-4 safe-area-pb">
             {step === 5 && answers.timeline && (
               <div className="mb-4 space-y-3 rounded-lg border border-line bg-canvas-muted p-4">
                 <p className="flex items-center gap-1.5 text-xs font-semibold text-ink-700">
@@ -589,6 +596,7 @@ export default function PropertyQuizModal({
                         type="text"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
+                        autoComplete="name"
                         placeholder="Adebayo Johnson"
                         className="w-full py-2 text-sm outline-none"
                       />
@@ -604,6 +612,8 @@ export default function PropertyQuizModal({
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="email"
+                        inputMode="email"
                         placeholder="you@email.com"
                         className="w-full py-2 text-sm outline-none"
                       />
@@ -617,6 +627,8 @@ export default function PropertyQuizModal({
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
+                        autoComplete="tel"
+                        inputMode="tel"
                         placeholder="08177766115"
                         className="w-full py-2 text-sm outline-none"
                       />
@@ -632,6 +644,7 @@ export default function PropertyQuizModal({
                         type="tel"
                         value={whatsapp}
                         onChange={(e) => setWhatsapp(e.target.value)}
+                        inputMode="tel"
                         placeholder="08177766115"
                         className="w-full py-2 text-sm outline-none"
                       />

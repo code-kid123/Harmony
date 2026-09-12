@@ -121,7 +121,7 @@ export default function PropertiesClient() {
                   <button
                     key={area}
                     onClick={() => toggleLocation(area)}
-                    className={`rounded border px-2.5 py-1 text-[10px] font-medium transition-all ${
+                    className={`rounded-md border px-3 py-2 text-xs font-medium transition-all active:scale-[0.98] ${
                       active
                         ? "border-[var(--brand-primary)] bg-gold-50 text-ink"
                         : "border-line text-ink-700 hover:border-ink/30"
@@ -143,7 +143,7 @@ export default function PropertiesClient() {
                   <button
                     key={t.value}
                     onClick={() => togglePropertyType(t.value)}
-                    className={`rounded border px-2.5 py-1 text-[10px] font-medium transition-all ${
+                    className={`rounded-md border px-3 py-2 text-xs font-medium transition-all active:scale-[0.98] ${
                       active
                         ? "border-[var(--brand-primary)] bg-gold-50 text-ink"
                         : "border-line text-ink-700 hover:border-ink/30"
